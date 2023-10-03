@@ -1,0 +1,14 @@
+* {
+    margin: 0; //Fa que no hi hagi scroll horitzontal.
+    padding: 0;
+    box-sizing: border-box; //Fa que no hi hagi marges i paddings addicionals a les caixes.
+}
+
+#intro {
+    background-image: url("../images/image3.jpg");
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+@import "node_modules/bootstrap/scss/bootstrap.scss";

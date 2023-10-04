@@ -1,8 +1,11 @@
 "use strict";
-let jokeString = "I'm tired of following my dreams. I'm just going to ask them where they are going and meet up with them later.";
+let jokeString;
 const reportJokes = [];
 const button = document.querySelector("button");
 let acuditContainer = document.querySelector('.acudit-container');
+window.addEventListener("load", (event) => {
+    askJoke();
+});
 button.addEventListener("click", (e) => {
     e.preventDefault();
     askJoke();

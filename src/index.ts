@@ -4,12 +4,16 @@ interface Joke {
     date: string;
 } 
 
-let jokeString : string = "I'm tired of following my dreams. I'm just going to ask them where they are going and meet up with them later.";
+let jokeString : string;
 
 const reportJokes : Joke[] = [];
 
 const button = document.querySelector("button") as HTMLButtonElement;
 let acuditContainer = document.querySelector('.acudit-container') as HTMLDivElement;
+
+window.addEventListener("load", (event) => {
+    askJoke();
+  });
 
 button.addEventListener("click", (e)=> {
     e.preventDefault();

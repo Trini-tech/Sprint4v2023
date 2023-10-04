@@ -3,10 +3,9 @@ interface Joke {
     score: number | string;
     date: string;
 } 
-
+let twoJokesAPI : string[]=[];
 let jokeString : string;
 let stateWeather: string;
-
 const reportJokes : Joke[] = [];
 
 const button = document.querySelector("button") as HTMLButtonElement;
@@ -24,27 +23,39 @@ button.addEventListener("click", (e)=> {
     saveScores(reportJokes); console.log(reportJokes);
 });
 
+  
 function askJoke(){
-    fetch(`https://icanhazdadjoke.com/`, {
-        method: 'GET',
+    // First endpoint to fetch data from
+    const endpoint1 = 'https://icanhazdadjoke.com/';
+    
+    // Fetch data from first endpoint
+    fetch(endpoint1, {
         headers:{
             'Accept': 'application/json',
         },
     })
-    .then(res => res.json())
-    .then(data =>{
-        jokeString = data.joke;
-        writeJoke(data);
-    })
-
-
-    .catch(function(error) {
-        console.log(error);
-    });
- }
-
-function writeJoke(acudit:any){
-    acuditContainer.textContent = acudit.joke;
+        .then(response => response.json())
+        .then(data1 => {
+            twoJokesAPI[0] = data1.joke;
+        
+        // Second endpoint to fetch data from
+        const endpoint2 = 'https://api.chucknorris.io/jokes/random';
+        
+        // Fetch data from second endpoint
+        return fetch(endpoint2, {
+            headers:{
+                'Accept': 'application/json',
+            },
+        });
+        })
+        .then(response => response.json())
+        .then(data2 => {
+            twoJokesAPI[1] = data2.value;
+            jokeString = twoJokesAPI[(Math.random() * twoJokesAPI.length) | 0];
+            // Writes joke
+            acuditContainer.textContent = jokeString;
+        })
+        .catch(error => console.error(error));
 }
 
 function saveScores(reportJokes:Joke[]): void {

@@ -13,3 +13,4 @@ declare let tempsContainer: HTMLDivElement;
 declare function askJoke(): void;
 declare function saveScores(reportJokes: Joke[]): void;
 declare function getWeather(): void;
+declare function replaceBg(): void;

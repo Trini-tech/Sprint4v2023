@@ -21,6 +21,7 @@ button.addEventListener("click", (e)=> {
     e.preventDefault();
     askJoke();
     saveScores(reportJokes); console.log(reportJokes);
+    replaceBg();
 });
 
   
@@ -82,11 +83,22 @@ function getWeather(){
     })
     .then(res => res.json())
     .then(data =>{
-        stateWeather = `Hoy, ${data.stateSky.description} ${data.temperatura_actual}ºC`
+        stateWeather = `${data.stateSky.description} ${data.temperatura_actual}ºC`
         tempsContainer.textContent = stateWeather;
 
         })
     .catch(function(error) {
         console.log(error);
     });
+ }
+
+ function replaceBg(){
+    let svgContainer = document.getElementById("svg-container") as HTMLDivElement;
+    
+    if(svgContainer.classList.contains("magicpattern")){
+        svgContainer.classList.replace("magicpattern", "pattern2");
+    }else{
+        svgContainer.classList.replace("pattern2", "magicpattern");
+    }
+
  }

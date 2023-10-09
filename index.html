@@ -6,35 +6,34 @@
     <link rel="stylesheet" href="./css/main.min.css">
     <title>Sprint 4 v2023</title>
 </head>
-<body>
-    <div id="intro" class="bg-image">
-            <div class="temps-container position-absolute top-0 start-0 p-3 text-white"></div>
-            <div class="container position-absolute top-50 start-50 translate-middle">
-                <div class="container bg-white px-4 py-5 my-5 text-center align-items-center rounded-3 shadow-lg">
-                    <h3>Preparat per riure?</h3>
-                    <div class="acudit-container m-5"><!-- Aquí va l'acudit-->
-                    </div>
-                    <!-- Aquí va la puntuació
-                    Si posem name="" fa que la selecció sigui única i no mútiple-->
-                    <div class="container puntuaction d-flex justify-content-center">
-                        <div class="p-2">
-                        <label for="1">1</label><br>
-                        <input class="radio-btn" type="radio" name="punctuation" id="1" value="1">
-                        </div>
-                        <div class="p-2">
-                        <label for="2">2</label><br>
-                        <input class="radio-btn" type="radio" name="punctuation" id="2" value="2">
-                        </div>
-                        <div class="p-2">
-                        <label for="3">3</label><br>
-                        <input class="radio-btn" type="radio" name="punctuation" id="3" value="3">
-                        </div>
-                    </div>
-
-                    <button type="submit" class= "btn btn-primary">Següent acudit</button>
-                </div>
+<body >
+    <div class="temps-container position-absolute top-0 start-0 p-3"></div>
+    <div id="svg-container" class="container magicpattern position-absolute top-50 start-50 translate-middle">
+        <div class="container px-5 py-5 text-center align-items-center" >
+            <h3 class="text-white">Preparat per riure?</h3>
+            <div class="acudit-container mt-5 text-white"><!-- Aquí va l'acudit-->
             </div>
+            <!-- Aquí va la puntuació
+            Si posem name="" fa que la selecció sigui única i no mútiple-->
+            <form class="container-puntuaction d-flex justify-content-center p-3">
+                <div class="p-2">
+                <label for="happy"><br>
+                <input class="radio-btn" type="radio" name="punctuation" id="happy" value="3"></label>
+                </div>
+                <div class="p-2">
+                <label for="neutral"><br>
+                <input class="radio-btn" type="radio" name="punctuation" id="neutral" value="2"></label>
+                </div>
+                <div class="p-2">
+                <label for="sad"><br>
+                <input class="radio-btn" type="radio" name="punctuation" id="sad" value="1"></label>
+                </div>
+            </form>
+
+            <button type="button" class= "btn btn-primary rounded-pill">Següent acudit</button>
+        </div>
     </div>
+
     <script src="build/src/index.js"></script>
     
 </body>

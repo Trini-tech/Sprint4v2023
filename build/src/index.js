@@ -15,9 +15,10 @@ button.addEventListener("click", (e) => {
     askJoke();
     saveScores(reportJokes);
     console.log(reportJokes);
+    replaceBg();
 });
-// First endpoint to fetch data from
 function askJoke() {
+    // First endpoint to fetch data from
     const endpoint1 = 'https://icanhazdadjoke.com/';
     // Fetch data from first endpoint
     fetch(endpoint1, {
@@ -69,11 +70,20 @@ function getWeather() {
     })
         .then(res => res.json())
         .then(data => {
-        stateWeather = `Hoy, ${data.stateSky.description} ${data.temperatura_actual}ºC`;
+        stateWeather = `${data.stateSky.description} ${data.temperatura_actual}ºC`;
         tempsContainer.textContent = stateWeather;
     })
         .catch(function (error) {
         console.log(error);
     });
+}
+function replaceBg() {
+    let svgContainer = document.getElementById("svg-container");
+    if (svgContainer.classList.contains("magicpattern")) {
+        svgContainer.classList.replace("magicpattern", "pattern2");
+    }
+    else {
+        svgContainer.classList.replace("pattern2", "magicpattern");
+    }
 }
 //# sourceMappingURL=index.js.map
